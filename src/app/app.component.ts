@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Pedal} from "../shared/model/pedal";
-import {Guitarra} from "../shared/model/guitarra";
+import {Pedal} from "./shared/model/pedal";
+import {Guitarra} from "./shared/model/guitarra";
 
 @Component({
   selector: 'app-root',

@@ -11,24 +11,29 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {LayoutModule} from "./layout/layout.module";
+import {FlexModule} from "@angular/flex-layout";
+import {GuitarraModule} from "./guitarra/guitarra.module";
+import {PedalModule} from "./pedal/pedal.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatCardModule,
-        LayoutModule
-
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    LayoutModule,
+    FlexModule,
+    GuitarraModule,
+    PedalModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

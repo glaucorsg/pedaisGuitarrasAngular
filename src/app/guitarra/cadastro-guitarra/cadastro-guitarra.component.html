@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastro de guitarras</mat-card-title>
+  </mat-card-header>
+  <mat-form-field appearance="fill">
+    <mat-label>Modelo</mat-label>
+    <input matInput [(ngModel)]="guitarra.modelo" placeholder="digite o modelo">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Marca</mat-label>
+    <input matInput [(ngModel)]="guitarra.marca" placeholder="digite a marca">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Preço</mat-label>
+    <input matInput [(ngModel)]="guitarra.preco" placeholder="digite o preço">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="guitarra.descricao" placeholder="descrição do produto">
+  </mat-form-field>
+
+  <button mat-raised-button mat-icon-button color="primary" (click)="inserirGuitarra()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</mat-card>

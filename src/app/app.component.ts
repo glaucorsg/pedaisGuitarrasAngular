@@ -9,24 +9,18 @@ import {Guitarra} from "./shared/model/guitarra";
 })
 export class AppComponent {
   title = 'Pedais & Guitarras';
-  pedal: Pedal;
-  pedais: Array<Pedal>;
 
   guitarra: Guitarra;
   guitarras: Array<Guitarra>;
 
   constructor() {
-    this.pedal = new Pedal();
-    this.pedais = new Array<Pedal>();
+
 
     this.guitarra = new Guitarra();
     this.guitarras = new Array<Guitarra>();
   }
 
-  inserirPedal(): void {
-    this.pedais.push(this.pedal);
-    this.pedal = new Pedal();
-  }
+
 
   inserirGuitarra(): void {
     this.guitarras.push(this.guitarra);

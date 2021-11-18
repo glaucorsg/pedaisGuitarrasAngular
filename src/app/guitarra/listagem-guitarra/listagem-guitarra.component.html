@@ -1,0 +1,7 @@
+<mat-card *ngFor="let guitarra of guitarras" class="card-guitarra">
+  <mat-card-header>
+    <mat-card-title>{{guitarra.modelo}}</mat-card-title>
+    <mat-card-subtitle>Marca: {{guitarra.marca}} <br> Preço {{guitarra.preco}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content> Descrição: {{guitarra.descricao}} </mat-card-content>
+</mat-card>

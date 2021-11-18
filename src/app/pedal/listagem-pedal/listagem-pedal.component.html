@@ -1,0 +1,7 @@
+<mat-card *ngFor="let pedal of pedais" class="card-pedal">
+  <mat-card-header>
+    <mat-card-title>{{pedal.modelo}}</mat-card-title>
+    <mat-card-subtitle>Marca: {{pedal.marca}} <br> Preço {{pedal.preco}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content> Descrição: {{pedal.descricao}} </mat-card-content>
+</mat-card>

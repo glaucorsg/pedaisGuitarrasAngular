@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Pedal} from "../../shared/model/pedal";
+import {PEDAIS} from "../../shared/model/PEDAIS";
 
 @Component({
   selector: 'app-cadastro-pedal',
@@ -13,7 +14,8 @@ export class CadastroPedalComponent implements OnInit {
 
   constructor() {
     this.pedal = new Pedal();
-    this.pedais = new Array<Pedal>();
+    //this.pedais = new Array<Pedal>();
+    this.pedais = PEDAIS;
   }
 
   ngOnInit(): void {

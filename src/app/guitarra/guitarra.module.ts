@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FlexModule} from "@angular/flex-layout";
 
 
 
@@ -21,15 +22,16 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     CadastroGuitarraComponent,
     ListagemGuitarraComponent
   ],
-  imports: [
-    CommonModule,
-    MatInputModule,
-    MatIconModule,
-    MatCardModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    BrowserAnimationsModule
-  ]
+    imports: [
+        CommonModule,
+        MatInputModule,
+        MatIconModule,
+        MatCardModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        FlexModule
+    ]
 })
 export class GuitarraModule { }

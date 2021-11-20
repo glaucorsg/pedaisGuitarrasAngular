@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Guitarra} from "../../shared/model/guitarra";
+import {GUITARRAS} from "../../shared/model/GUITARRAS";
 
 @Component({
   selector: 'app-cadastro-guitarra',
@@ -13,7 +14,8 @@ export class CadastroGuitarraComponent implements OnInit {
 
   constructor() {
     this.guitarra = new Guitarra();
-    this.guitarras = new Array<Guitarra>();
+    //this.guitarras = new Array<Guitarra>();
+    this.guitarras = GUITARRAS;
   }
 
   ngOnInit(): void {

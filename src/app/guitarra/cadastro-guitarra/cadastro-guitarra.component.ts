@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Guitarra} from "../../shared/model/guitarra";
-import {GUITARRAS} from "../../shared/model/GUITARRAS";
+import {GuitarraService} from "../../shared/services/guitarra.service";
+
 
 @Component({
   selector: 'app-cadastro-guitarra',
@@ -10,20 +11,20 @@ import {GUITARRAS} from "../../shared/model/GUITARRAS";
 export class CadastroGuitarraComponent implements OnInit {
 
   guitarra: Guitarra;
-  guitarras: Array<Guitarra>;
 
-  constructor() {
+  constructor(private guitarraservice: GuitarraService) {
     this.guitarra = new Guitarra();
-    //this.guitarras = new Array<Guitarra>();
-    this.guitarras = GUITARRAS;
   }
 
   ngOnInit(): void {
   }
 
   inserirGuitarra(): void {
-    this.guitarras.push(this.guitarra);
+    this.guitarraservice.inserirGuitarra(this.guitarra).subscribe(
+      guitarra => console.log(guitarra)
+    );
     this.guitarra = new Guitarra();
   }
-
 }
+
+

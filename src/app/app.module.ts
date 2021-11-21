@@ -14,6 +14,8 @@ import {LayoutModule} from "./layout/layout.module";
 import {FlexModule} from "@angular/flex-layout";
 import {GuitarraModule} from "./guitarra/guitarra.module";
 import {PedalModule} from "./pedal/pedal.module";
+import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {PedalModule} from "./pedal/pedal.module";
     LayoutModule,
     FlexModule,
     GuitarraModule,
-    PedalModule
+    PedalModule,
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

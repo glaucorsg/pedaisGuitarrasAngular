@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Pedal} from "../../shared/model/pedal";
-import {PEDAIS} from "../../shared/model/PEDAIS";
+import {PedalService} from "../../shared/services/pedal.service";
 
 @Component({
   selector: 'app-cadastro-pedal',
@@ -10,21 +10,18 @@ import {PEDAIS} from "../../shared/model/PEDAIS";
 export class CadastroPedalComponent implements OnInit {
 
   pedal: Pedal;
-  pedais: Array<Pedal>;
 
-  constructor() {
+  constructor(private pedalservice: PedalService) {
     this.pedal = new Pedal();
-    //this.pedais = new Array<Pedal>();
-    this.pedais = PEDAIS;
   }
 
   ngOnInit(): void {
   }
 
   inserirPedal(): void {
-    this.pedais.push(this.pedal);
+    this.pedalservice.inserirPedal(this.pedal).subscribe(
+      pedal => console.log(pedal)
+    );
     this.pedal = new Pedal();
   }
-
-
 }

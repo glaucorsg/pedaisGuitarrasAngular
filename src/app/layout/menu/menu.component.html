@@ -1,55 +1,19 @@
 <div class="menu-background">
   <button mat-button class="botaoMenu" [matMenuTriggerFor]="menu">Menu</button>
+
   <mat-menu #menu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="pedais">Pedais</button>
-    <button mat-menu-item [matMenuTriggerFor]="guitarras">Guitarras</button>
+    <button mat-menu-item [matMenuTriggerFor]="Pedais">Pedais</button>
+    <button mat-menu-item [matMenuTriggerFor]="Guitarras">Guitarras</button>
   </mat-menu>
 
-  <mat-menu #pedais="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="MXR">MXR</button>
-    <button mat-menu-item [matMenuTriggerFor]="IbanezP">Ibanez</button>
-    <button mat-menu-item [matMenuTriggerFor]="Boss">Boss</button>
+  <mat-menu #Pedais="matMenu">
+    <button mat-menu-item [routerLink]="['/cadastrarpedal']">Cadastrar pedais</button>
+    <button mat-menu-item [routerLink]="['/listarpedais']">Listar pedais</button>
   </mat-menu>
 
-  <mat-menu #guitarras="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="Gibson">Gibson</button>
-    <button mat-menu-item [matMenuTriggerFor]="Fender">Fender</button>
-    <button mat-menu-item [matMenuTriggerFor]="IbanezG">Ibanez</button>
-  </mat-menu>
-
-  <mat-menu #MXR="matMenu">
-    <button mat-menu-item>Dyna Comp</button>
-    <button mat-menu-item>Distortion +</button>
-  </mat-menu>
-
-  <mat-menu #IbanezP="matMenu">
-    <button mat-menu-item>TS 808</button>
-    <button mat-menu-item>TS 9</button>
-  </mat-menu>
-
-  <mat-menu #Boss="matMenu">
-    <button mat-menu-item>SD-1</button>
-    <button mat-menu-item>DS-1</button>
-    <button mat-menu-item>TR-2</button>
-  </mat-menu>
-
-  <mat-menu #Gibson="matMenu">
-    <button mat-menu-item>Les Paul Junior Vintage</button>
-    <button mat-menu-item>SG Standart</button>
-    <button mat-menu-item>Les Paul Studio</button>
-  </mat-menu>
-
-  <mat-menu #Fender="matMenu">
-    <button mat-menu-item>Jaguar</button>
-    <button mat-menu-item>Telecaster</button>
-    <button mat-menu-item>Stratocaster</button>
-    <button mat-menu-item>Mustang</button>
-  </mat-menu>
-
-  <mat-menu #IbanezG="matMenu">
-    <button mat-menu-item>GAX 30</button>
-    <button mat-menu-item>GRX 40</button>
-    <button mat-menu-item>GRG 170dx</button>
+  <mat-menu #Guitarras="matMenu">
+    <button mat-menu-item [routerLink]="['/cadastrarguitarra']">Cadastrar guitarras</button>
+    <button mat-menu-item [routerLink]="['/listarguitarras']">Listar guitarras</button>
   </mat-menu>
 </div>
 

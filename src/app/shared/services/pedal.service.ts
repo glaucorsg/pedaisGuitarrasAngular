@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {PEDAIS} from "../model/PEDAIS";
 import {Pedal} from "../model/pedal";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,11 @@ export class PedalService {
   }
 
   listarPedais(): Observable<Pedal[]>{
-    return this.httpClient.get<Pedal[]>(this.URL_PEDAIS);
+    // @ts-ignore
+    return this.httpClient.get<Pedal[]>(this.URL_PEDAIS).pipe(catchError(erro => {
+      console.log('Erro no carregamento', erro);
+      return of(undefined);
+    }));
   }
 
   inserirPedal(pedal: Pedal): Observable<Pedal> {

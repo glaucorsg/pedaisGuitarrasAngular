@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {GUITARRAS} from "../model/GUITARRAS";
 import {Guitarra} from "../model/guitarra";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, of} from "rxjs";
 import {Pedal} from "../model/pedal";
 
 
@@ -17,7 +17,12 @@ export class GuitarraService {
   }
 
   listarGuitarras(): Observable<Guitarra[]>{
-    return this.httpClient.get<Guitarra[]>(this.URL_GUITARRAS);
+    // @ts-ignore
+    return this.httpClient.get<Guitarra[]>(this.URL_GUITARRAS).pipe(catchError(erro => {
+      console.log('Erro de carregamento', erro);
+      return of(undefined);
+    }
+  ));
   }
 
   inserirGuitarra(guitarra: Guitarra): Observable<Guitarra>{

@@ -1,7 +1,8 @@
-<div fxLayout="row" fxLayoutAlign="left center">
+<div fxLayout="row wrap" fxLayoutAlign="left center">
   <mat-card fxFlex="100%">
     <mat-card-header>
-      <mat-card-title>Cadastro de pedais</mat-card-title>
+      <mat-card-title *ngIf="operacaoCadastro">Cadastro de pedais</mat-card-title>
+      <mat-card-title *ngIf="!operacaoCadastro">Edição de pedais</mat-card-title>
     </mat-card-header>
     <mat-form-field appearance="fill">
       <mat-label>Modelo</mat-label>
@@ -23,8 +24,9 @@
       <input matInput [(ngModel)]="pedal.descricao" placeholder="descrição do produto">
     </mat-form-field>
 
-    <button mat-raised-button mat-icon-button color="primary" (click)="inserirPedal()">
-      <mat-icon>add</mat-icon>
+    <button mat-raised-button mat-icon-button color="primary" (click)="inserirPedal()" class="button">
+      <mat-icon *ngIf="operacaoCadastro">add</mat-icon>
+      <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
     </button>
   </mat-card>
 </div>

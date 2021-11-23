@@ -11,7 +11,15 @@ const routes: Routes = [
     component: CadastroPedalComponent
   },
   {
+    path: 'cadastrarpedal/:id',
+    component: CadastroPedalComponent
+  },
+  {
     path: 'cadastrarguitarra',
+    component: CadastroGuitarraComponent
+  },
+  {
+    path: 'cadastrarguitarra/:id',
     component: CadastroGuitarraComponent
   },
   {

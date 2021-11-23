@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Pedal} from "../../shared/model/pedal";
 import {PedalService} from "../../shared/services/pedal.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ListagemPedalComponent implements OnInit {
 
   pedais!: Array<Pedal>;
 
-  constructor(private pedalService: PedalService) {
+  constructor(private pedalService: PedalService, private roteador: Router) {
   }
 
   ngOnInit(): void {
@@ -21,10 +22,18 @@ export class ListagemPedalComponent implements OnInit {
     );
   }
 
-  deletar(pedal: Pedal): void {
-    const indxPedalARemover = this.pedais.findIndex(p => p.modelo === pedal.modelo);
-    if (indxPedalARemover > -1) {
-      this.pedais.splice(indxPedalARemover, 1);
-    }
+  editar(pedal: Pedal): void{
+    this.roteador.navigate(['cadastrarpedal', pedal.id]);
+  }
+
+  remover(pedal: Pedal): void {
+    this.pedalService.removerPedal(pedal.id).subscribe(
+      resposta => {
+        const indxPedalARemover = this.pedais.findIndex(p => p.modelo === pedal.modelo);
+        if (indxPedalARemover > -1) {
+          this.pedais.splice(indxPedalARemover, 1);
+        }
+      }
+    );
   }
 }

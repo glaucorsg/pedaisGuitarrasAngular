@@ -22,4 +22,16 @@ export class PedalService {
     //Inserir regra para evitar duplicidade no cadastro
     return this.httpClient.post<Pedal>(this.URL_PEDAIS, pedal);
   }
+
+  removerPedal(id: number): Observable<object>{
+    return this.httpClient.delete(`${this.URL_PEDAIS}/${id}`);
+  }
+
+  pesquisarPorId(id: number): Observable<Pedal> {
+    return this.httpClient.get<Pedal>(`${this.URL_PEDAIS}/${id}`);
+  }
+
+  atualizarPedal(pedal: Pedal): Observable<Pedal>{
+    return this.httpClient.put<Pedal>(`${this.URL_PEDAIS}/${pedal.id}`,pedal);
+  }
 }

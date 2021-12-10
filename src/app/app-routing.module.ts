@@ -4,6 +4,8 @@ import {CadastroPedalComponent} from "./pedal/cadastro-pedal/cadastro-pedal.comp
 import {CadastroGuitarraComponent} from "./guitarra/cadastro-guitarra/cadastro-guitarra.component";
 import {ListagemPedalComponent} from "./pedal/listagem-pedal/listagem-pedal.component";
 import {ListagemGuitarraComponent} from "./guitarra/listagem-guitarra/listagem-guitarra.component";
+import {ListagemPedalTabelaComponent} from "./pedal/listagem-pedal-tabela/listagem-pedal-tabela.component";
+import {ListagemGuitarraTabelaComponent} from "./guitarra/listagem-guitarra-tabela/listagem-guitarra-tabela.component";
 
 const routes: Routes = [
   {
@@ -27,8 +29,16 @@ const routes: Routes = [
     component: ListagemPedalComponent
   },
   {
+    path: 'listartabelapedais',
+    component: ListagemPedalTabelaComponent
+  },
+  {
     path: 'listarguitarras',
     component: ListagemGuitarraComponent
+  },
+  {
+    path: 'listartabelaguitarras',
+    component: ListagemGuitarraTabelaComponent
   }
 
 ];

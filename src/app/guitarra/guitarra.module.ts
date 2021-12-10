@@ -10,28 +10,32 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexModule} from "@angular/flex-layout";
+import { ListagemGuitarraTabelaComponent } from './listagem-guitarra-tabela/listagem-guitarra-tabela.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 
 @NgModule({
     declarations: [
         CadastroGuitarraComponent,
-        ListagemGuitarraComponent
+        ListagemGuitarraComponent,
+        ListagemGuitarraTabelaComponent
     ],
   exports: [
     CadastroGuitarraComponent,
     ListagemGuitarraComponent
   ],
-    imports: [
-        CommonModule,
-        MatInputModule,
-        MatIconModule,
-        MatCardModule,
-        FormsModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        FlexModule
-    ]
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    FlexModule,
+    MatTableModule
+  ]
 })
 export class GuitarraModule { }

@@ -10,13 +10,16 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexModule} from "@angular/flex-layout";
+import { ListagemPedalTabelaComponent } from './listagem-pedal-tabela/listagem-pedal-tabela.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 
 @NgModule({
     declarations: [
         CadastroPedalComponent,
-        ListagemPedalComponent
+        ListagemPedalComponent,
+        ListagemPedalTabelaComponent
     ],
   exports: [
     ListagemPedalComponent,
@@ -31,7 +34,8 @@ import {FlexModule} from "@angular/flex-layout";
     FormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    FlexModule
+    FlexModule,
+    MatTableModule
   ]
 })
 export class PedalModule { }

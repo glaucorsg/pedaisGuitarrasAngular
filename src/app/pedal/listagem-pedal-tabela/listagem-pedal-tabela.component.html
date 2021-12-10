@@ -1,0 +1,42 @@
+<mat-form-field class = "busca">
+  <mat-label>Busca</mat-label>
+  <input matInput placeholder="Digite o termo a ser buscado" (keyup)="filtrar(inputBusca.value)" #inputBusca>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="mostrarColunas"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: mostrarColunas;"></mat-row>
+
+  <ng-container matColumnDef="modelo">
+    <mat-header-cell *matHeaderCellDef>Modelo</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.modelo}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="marca">
+    <mat-header-cell *matHeaderCellDef>Marca</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.marca}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ano">
+    <mat-header-cell *matHeaderCellDef>Ano de fabricação</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.ano}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="preco">
+    <mat-header-cell *matHeaderCellDef>Preço</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.preco}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon (click)="apagar(item.id)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+</mat-table>

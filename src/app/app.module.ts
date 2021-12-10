@@ -16,6 +16,8 @@ import {GuitarraModule} from "./guitarra/guitarra.module";
 import {PedalModule} from "./pedal/pedal.module";
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {FirestoreModule} from "./firestore/firestore.module";
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
     GuitarraModule,
     PedalModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

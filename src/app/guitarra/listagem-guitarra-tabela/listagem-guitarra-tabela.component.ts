@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {GuitarraService} from "../../shared/services/guitarra.service";
 import {Guitarra} from "../../shared/model/guitarra";
+import {GuitarraFirestoreService} from "../../shared/services/guitarra-firestore.service";
 
 @Component({
   selector: 'app-listagem-guitarra-tabela',
@@ -15,11 +16,11 @@ export class ListagemGuitarraTabelaComponent implements OnInit {
   mostrarColunas = ['modelo', 'marca', 'ano', 'preco', 'acoes'];
 
 
-  constructor(private guitarraservice: GuitarraService) {
+  constructor(private guitarraservice: GuitarraFirestoreService) {
   }
 
   ngOnInit(): void {
-    this.guitarraservice.listarGuitarras().subscribe(
+    this.guitarraservice.listar().subscribe(
       guitarras => this.dataSource = new MatTableDataSource<Guitarra>(guitarras)
     )
   }
@@ -28,8 +29,8 @@ export class ListagemGuitarraTabelaComponent implements OnInit {
     this.dataSource.filter = value.trim().toLowerCase();
   }
 
-  apagar(id: number): void {
-    this.guitarraservice.removerGuitarra(id).subscribe(
+  apagar(id: string): void {
+    this.guitarraservice.remover(id).subscribe(
       apagado => {
         const indx = this.dataSource.data.findIndex(guitarra => guitarra.id === id);
         if(indx > -1){

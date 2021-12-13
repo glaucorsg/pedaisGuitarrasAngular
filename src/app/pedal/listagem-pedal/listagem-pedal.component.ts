@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Pedal} from "../../shared/model/pedal";
 import {PedalService} from "../../shared/services/pedal.service";
 import {Router} from "@angular/router";
+import {PedalFirestoreService} from "../../shared/services/pedal-firestore.service";
 
 
 @Component({
@@ -13,11 +14,11 @@ export class ListagemPedalComponent implements OnInit {
 
   pedais!: Array<Pedal>;
 
-  constructor(private pedalService: PedalService, private roteador: Router) {
+  constructor(private pedalService: PedalFirestoreService, private roteador: Router) {
   }
 
   ngOnInit(): void {
-    this.pedalService.listarPedais().subscribe(
+    this.pedalService.listar().subscribe(
       pedais => this.pedais = pedais
     );
   }
@@ -27,7 +28,7 @@ export class ListagemPedalComponent implements OnInit {
   }
 
   remover(pedal: Pedal): void {
-    this.pedalService.removerPedal(pedal.id).subscribe(
+    this.pedalService.remover(String(pedal.id)).subscribe(
       resposta => {
         const indxPedalARemover = this.pedais.findIndex(p => p.modelo === pedal.modelo);
         if (indxPedalARemover > -1) {

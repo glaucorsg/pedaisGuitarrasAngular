@@ -3,6 +3,7 @@ import {Pedal} from "../../shared/model/pedal";
 import {MatTableDataSource} from "@angular/material/table";
 import {PedalService} from "../../shared/services/pedal.service";
 import {Guitarra} from "../../shared/model/guitarra";
+import {PedalFirestoreService} from "../../shared/services/pedal-firestore.service";
 
 @Component({
   selector: 'app-listagem-pedal-tabela',
@@ -17,10 +18,10 @@ export class ListagemPedalTabelaComponent implements OnInit {
 
 
 
-  constructor(private pedalservice: PedalService) { }
+  constructor(private pedalservice: PedalFirestoreService) { }
 
   ngOnInit(): void {
-    this.pedalservice.listarPedais().subscribe(
+    this.pedalservice.listar().subscribe(
       pedais => this.dataSource = new MatTableDataSource<Pedal>(pedais)
     );
   }
@@ -30,8 +31,8 @@ export class ListagemPedalTabelaComponent implements OnInit {
 
   }
 
-  apagar(id: number): void {
-    this.pedalservice.removerPedal(id).subscribe(
+  apagar(id: string): void {
+    this.pedalservice.remover(id).subscribe(
       apagado => {
         const indx = this.dataSource.data.findIndex(pedal => pedal.id === id);
         if (indx > -1) {
